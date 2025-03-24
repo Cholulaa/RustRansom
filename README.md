@@ -1,6 +1,6 @@
 # RustRansom
 
-![RustRansom Banner](RustRansom.png)
+![RustRansom Banner](RustRansom.PNG)
 
 RustRansom est un simulateur de ransomware écrit en Rust, développé à des fins éducatives et de démonstration. Le projet se compose de deux parties principales :
 
