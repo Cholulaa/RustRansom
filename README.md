@@ -1,8 +1,11 @@
+# RustRansom
+
+![RustRansom Banner](RustRansom.png)
 
 RustRansom est un simulateur de ransomware écrit en Rust, développé à des fins éducatives et de démonstration. Le projet se compose de deux parties principales :
 
 - **Client RustRansom**  
-  Ce programme chiffre les fichiers d’un répertoire cible en utilisant AES-256-GCM, crée un fichier `readme.txt` avec la clé de récupération et des instructions, envoie la clé au serveur de Command & Control (C2) et, si désiré, exfiltre les fichiers chiffrés en les déchiffrant en mémoire (les fichiers sont ainsi envoyés en clair).
+  Ce programme chiffre les fichiers d’un répertoire cible en utilisant AES-256-GCM, crée un fichier `readme.txt` avec la clé de récupération et des instructions, envoie la clé au serveur de Command & Control (C2) et, en option, exfiltre les fichiers chiffrés (les déchiffre en mémoire avant de les envoyer en clair).
 
 - **Serveur C2 (RustRansom C2 Server)**  
   Un serveur HTTP léger basé sur Warp qui reçoit la clé de chiffrement et les fichiers exfiltrés. Les fichiers reçus sont sauvegardés dans le dossier `exfiltrated_files`.
@@ -17,8 +20,8 @@ RustRansom est un simulateur de ransomware écrit en Rust, développé à des fi
 
 ## Prérequis
 
-- [Rust](https://www.rust-lang.org/tools/install) (version stable)  
-- (Optionnel) Pour cross-compiler vers Windows depuis Linux :  
+- [Rust](https://www.rust-lang.org/tools/install) (version stable)
+- (Optionnel) Pour cross-compiler vers Windows depuis Linux :
   ```sh
   rustup target add x86_64-pc-windows-gnu
   sudo apt-get install gcc-mingw-w64-x86-64
@@ -77,10 +80,10 @@ Options :
 Pendant le chiffrement, le client :
 - Chiffre tous les fichiers du dossier cible (les fichiers originaux sont supprimés si `-c` n'est pas spécifié).
 - Génère un fichier `readme.txt` dans le dossier cible qui contient :
-  - Une belle bannière,
-  - Un message informatif,
+  - La bannière ci-dessus,
+  - Le message : "Tous vos fichiers ont été chiffrés par RustRansom! Mais ne vous inquiétez pas, vous pouvez toujours les récupérer avec la clé de récupération.",
   - La clé de récupération,
-  - La commande pour déchiffrer les fichiers,
+  - La commande à utiliser pour déchiffrer les fichiers,
   - La liste des fichiers chiffrés.
 - Envoie la clé de récupération au serveur C2.
 - Si `-x` est activé, chaque fichier chiffré est déchiffré en mémoire et envoyé en clair au serveur C2 via l'endpoint `/files/<nom>`.
@@ -133,7 +136,3 @@ Les contributions sont les bienvenues ! Veuillez ouvrir une issue ou soumettre
 ## Licence
 
 Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE) pour plus de détails.
-
----
-
-Ce README offre une présentation complète du projet, ses fonctionnalités et la procédure de compilation/utilisation sur différentes plateformes. N’hésitez pas à adapter ou enrichir ce document selon vos besoins.
