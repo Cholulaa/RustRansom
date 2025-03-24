@@ -1,4 +1,3 @@
-/target
 /exfiltrated_files/*
 cert.pem
 key.pem
