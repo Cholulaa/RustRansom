@@ -39,6 +39,7 @@
  /// Affiche la bannière et un bref tutoriel d'utilisation
  fn show_banner() {
      println!(r#"
+     
 ,a88888b. d8888b. .d88888b                                               
 d8'   `88     `88 88.    "'                                              
 88        .aaadP' `Y88888b. .d8888b. 88d888b. dP   .dP .d8888b. 88d888b. 
